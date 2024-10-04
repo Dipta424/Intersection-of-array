@@ -1,0 +1,87 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+// Typedefs for convenience
+typedef long long ll;
+typedef pair<int, int> pii;
+typedef vector<int> vi;
+
+// Constants
+const int MOD = 1e9 + 7;
+const ll INF = 1e18;
+
+// Fast I/O
+#define FAST_IO ios::sync_with_stdio(0); cin.tie(0); cout.tie(0)
+
+// Macros for common operations
+#define all(x) (x).begin(), (x).end()
+#define pb push_back
+#define mp make_pair
+#define F first
+#define S second
+#define FOR(i, a, b) for (int i = a; i < b; ++i)
+#define RFOR(i, a, b) for (int i = a; i >= b; --i)
+
+// Debugging macro
+#ifdef LOCAL
+    #define debug(x) cerr << #x << " = " << x << endl
+#else
+    #define debug(x)
+#endif
+
+// Modular arithmetic helper functions
+ll modExp(ll base, ll exp, ll mod) {
+    ll res = 1;
+    while (exp > 0) {
+        if (exp % 2 == 1) res = (res * base) % mod;
+        base = (base * base) % mod;
+        exp /= 2;
+    }
+    return res;
+}
+
+int main() {
+    FAST_IO;  
+
+    vector<ll>fr(265,0);
+    
+    ll t;
+    cin >> t;  
+    while (t--) {
+
+        ll n,k;
+        cin>>n>>k;
+
+        string str;
+
+        cin.ignore();
+        getline(cin,str);
+
+        for(int i=0; i<n; i++)
+        {
+            fr[str[i]]++;
+        }
+
+        ll count=0;
+        for(ll i=0; i<n; i++)
+        {
+            if(fr[str[i]]%2!=0)
+            {
+                count++;
+                fr[str[i]]=0;
+            }
+        }
+    // to be a palindrome the number of odd occurences should not be more than 1
+        if(count<=k+1)
+        {
+            cout<<"YES"<<endl;
+
+        }
+        else
+        cout<<"NO"<<endl;
+        
+        
+    }
+    
+    return 0;
+}
