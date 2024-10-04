@@ -51,6 +51,8 @@ int main() {
         cin>>a>>b;
         cin>>x1>>y1;
         cin>>x2>>y2;
+
+        //direction vector for each cell knight can be present
         vector<ll>dx={-a,-a,a,a,b,-b,b,-b};
         vector<ll>dy={-b,b,b,-b,a,a,-a,-a};
 
